@@ -1,7 +1,7 @@
 import { Facebook, Twitter, Instagram, Youtube, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 const footerLinks = {
   company: [
@@ -65,7 +65,7 @@ export const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-6">
+            <Link to="/" className="flex items-center gap-2 mb-6">
               <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-xl">E</span>
               </div>
