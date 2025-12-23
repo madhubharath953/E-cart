@@ -1,8 +1,10 @@
+"use client";
+
 import { useState } from "react";
 import { Search, ShoppingCart, Heart, User, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
-import Link from "next/link";
+import { useNavigate, Link } from "react-router-dom";
 
 const categories = [
   { name: "Electronics", href: "#" },
@@ -17,12 +19,17 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
 
+  const navigate = useNavigate();
+  const handleDashboardClick = () => {
+    navigate("/dashboard");
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-white text-black backdrop-blur-md ">
       <nav className="container-custom ">
         <div className="flex items-center px-10 py-4 justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-xl bg-orange-500 px-2 py-2 flex items-center justify-center">
               <span className="text-primary-foreground text-white font-bold text-xl">E</span>
             </div>
@@ -42,6 +49,11 @@ export const Navbar = () => {
               />
             </div>
           </div>
+
+          {/* Dashboard Button */}
+          <button className="hidden lg:flex items-center gap-2 bg-orange-500 text-black px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors hover:text-white"
+            onClick={handleDashboardClick}>
+            Dashboard</button>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-2">
